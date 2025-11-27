@@ -1,0 +1,77 @@
+{
+    "name": "Location",
+    "type": "object",
+    "properties": {
+        "name": {
+            "type": "string"
+        },
+        "type": {
+            "type": "string",
+            "description": "city, village, forest, desert, temple, etc."
+        },
+        "description": {
+            "type": "string"
+        },
+        "atmosphere": {
+            "type": "object",
+            "properties": {
+                "weather": {
+                    "type": "string"
+                },
+                "time": {
+                    "type": "string"
+                },
+                "sounds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "scents": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "npcs_present": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "connections": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "to": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "economy": {
+            "type": "object",
+            "properties": {
+                "goods_available": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "price_modifiers": {
+                    "type": "object"
+                }
+            }
+        }
+    },
+    "required": [
+        "name",
+        "type"
+    ]
+}
