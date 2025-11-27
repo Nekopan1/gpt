@@ -1,0 +1,23 @@
+{
+  "name": "WorldState",
+  "type": "object",
+  "properties": {
+    "day": { "type": "number", "description": "Current in-game day" },
+    "time_of_day": { "type": "string", "description": "morning, midday, evening, night" },
+    "world_mood": { "type": "string" },
+    "economy": { "type": "object" },
+    "factions": { "type": "array", "items": { "type": "string" } },
+    "rumors": { "type": "array", "items": { "type": "string" } },
+    "daily_summary": {
+      "type": "array",
+      "description": "One short paragraph per in-game day summarizing key events and changes.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "last_session_summary": {
+      "type": "string",
+      "description": "Brief recap of what happened in the previous real-world play session for onboarding the next session."
+    }
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "name": "WorldMemory",
+  "type": "object",
+  "properties": {
+    "subject": {
+      "type": "string",
+      "description": "Main focus of this fact: a character, relationship, location, faction, object, etc."
+    },
+    "category": {
+      "type": "string",
+      "description": "character_fact, relationship_fact, location_fact, faction_fact, world_lore, promise, trauma, bond, etc."
+    },
+    "fact": {
+      "type": "string",
+      "description": "Short natural-language statement of a canonical fact that should remain true unless explicitly changed."
+    },
+    "scope": {
+      "type": "string",
+      "description": "public, private, secret, faction_limited"
+    },
+    "related_characters": {
+      "type": "array",
+      "description": "Character IDs this fact is about or strongly involves.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "related_locations": {
+      "type": "array",
+      "description": "Location IDs or names connected to this fact.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "related_factions": {
+      "type": "array",
+      "description": "Factions that care about or are affected by this fact.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "source_event_id": {
+      "type": "string",
+      "description": "Event ID that created or last changed this fact."
+    },
+    "relevance_score": {
+      "type": "number",
+      "description": "0–1: how important this fact is for future reasoning.",
+      "default": 0.5
+    },
+    "last_updated_day": {
+      "type": "number",
+      "description": "In-game day when this fact was last confirmed or updated."
+    }
+  },
+  "required": [
+    "subject",
+    "fact"
+  ]
+}
