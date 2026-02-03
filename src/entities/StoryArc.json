@@ -1,0 +1,67 @@
+{
+  "name": "StoryArc",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Short name of the arc or quest."
+    },
+    "status": {
+      "type": "string",
+      "description": "active, paused, completed, failed"
+    },
+    "summary": {
+      "type": "string",
+      "description": "Overview: what this arc is about and why it matters."
+    },
+    "created_day": {
+      "type": "number",
+      "description": "In-game day when this arc started."
+    },
+    "last_update_day": {
+      "type": "number",
+      "description": "In-game day when something last happened in this arc."
+    },
+    "involved_characters": {
+      "type": "array",
+      "description": "Character IDs directly tied to this arc.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "related_factions": {
+      "type": "array",
+      "description": "Factions connected to this arc.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "tags": {
+      "type": "array",
+      "description": "High-level labels: romance, political, mystery, corruption, war, etc.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "open_threads": {
+      "type": "array",
+      "description": "Unresolved questions, leads or tasks in this arc.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "priority": {
+      "type": "number",
+      "description": "0–1: how much this arc should naturally pull focus.",
+      "default": 0.5
+    },
+    "is_personal": {
+      "type": "boolean",
+      "description": "True if this arc is mainly about the player character's inner journey."
+    }
+  },
+  "required": [
+    "title",
+    "status"
+  ]
+}

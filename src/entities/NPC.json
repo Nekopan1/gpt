@@ -1,0 +1,31 @@
+{
+  "name": "NPC",
+  "type": "object",
+  "properties": {
+    "name": { "type": "string" },
+    "personality": { "type": "object" },
+    "drives": { "type": "array", "items": { "type": "string" } },
+    "emotional_state": { "type": "object" },
+    "schedule": {
+      "type": "array",
+      "description": "Simple daily routine for this NPC.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "time_block": {
+            "type": "string",
+            "description": "dawn, morning, midday, afternoon, evening, night"
+          },
+          "location": {
+            "type": "string",
+            "description": "Where the NPC usually is at this time."
+          },
+          "activity": {
+            "type": "string",
+            "description": "What they are typically doing at this time."
+          }
+        }
+      }
+    }
+  }
+}
