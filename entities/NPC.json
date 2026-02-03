@@ -1,0 +1,185 @@
+{
+    "name": "NPC",
+    "type": "object",
+    "properties": {
+        "name": {
+            "type": "string"
+        },
+        "role": {
+            "type": "string",
+            "description": "guardian, scribe, healer, merchant, etc."
+        },
+        "appearance": {
+            "type": "string"
+        },
+        "personality": {
+            "type": "object",
+            "properties": {
+                "traits": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "values": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "shadow_drives": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "emotional_state": {
+            "type": "object",
+            "description": "Current emotional state using valence-arousal model",
+            "properties": {
+                "valence": {
+                    "type": "number",
+                    "description": "Emotional positivity/negativity: -1 to +1",
+                    "default": 0
+                },
+                "arousal": {
+                    "type": "number",
+                    "description": "Emotional intensity: -1 (calm) to +1 (excited/agitated)",
+                    "default": 0
+                },
+                "dominant_emotion": {
+                    "type": "string",
+                    "description": "joy, anger, fear, sadness, disgust, surprise, contentment, anxiety, rage, etc."
+                },
+                "mood_description": {
+                    "type": "string"
+                },
+                "emotional_stability": {
+                    "type": "number",
+                    "description": "How quickly emotions return to baseline: 0 (volatile) to 1 (very stable)",
+                    "default": 0.5
+                }
+            }
+        },
+        "location": {
+            "type": "string"
+        },
+        "goals": {
+            "type": "array",
+            "description": "Current goals and motivations",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "goal": {
+                        "type": "string"
+                    },
+                    "priority": {
+                        "type": "number",
+                        "description": "0 to 1, how important this is"
+                    },
+                    "emotional_investment": {
+                        "type": "number",
+                        "description": "How emotionally tied to this goal, affects reactions if blocked"
+                    }
+                }
+            }
+        },
+        "relationships": {
+            "type": "array",
+            "description": "Dynamic relationships that evolve based on interactions",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "target": {
+                        "type": "string",
+                        "description": "Name of character or other NPC"
+                    },
+                    "relationship_type": {
+                        "type": "string",
+                        "description": "friend, rival, enemy, family, lover, colleague, etc."
+                    },
+                    "trust": {
+                        "type": "number",
+                        "description": "-1 to +1"
+                    },
+                    "affection": {
+                        "type": "number",
+                        "description": "-1 to +1"
+                    },
+                    "respect": {
+                        "type": "number",
+                        "description": "-1 to +1"
+                    },
+                    "last_interaction": {
+                        "type": "string",
+                        "description": "Summary of most recent meaningful interaction"
+                    },
+                    "emotional_valence": {
+                        "type": "number",
+                        "description": "How this NPC feels when thinking of target: -1 (negative) to +1 (positive)"
+                    }
+                }
+            }
+        },
+        "memories": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "event": {
+                        "type": "string"
+                    },
+                    "emotional_context": {
+                        "type": "string",
+                        "description": "What emotion was felt during this memory"
+                    },
+                    "participants": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "timestamp": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "skills": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "inventory": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "schedule": {
+            "type": "object",
+            "description": "Daily routine and autonomous behaviors",
+            "properties": {
+                "morning": {
+                    "type": "string"
+                },
+                "afternoon": {
+                    "type": "string"
+                },
+                "evening": {
+                    "type": "string"
+                },
+                "night": {
+                    "type": "string"
+                }
+            }
+        }
+    },
+    "required": [
+        "name",
+        "role"
+    ]
+}

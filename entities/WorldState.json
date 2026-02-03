@@ -1,0 +1,172 @@
+{
+    "name": "WorldState",
+    "type": "object",
+    "properties": {
+        "season": {
+            "type": "string",
+            "description": "Deep Winter, Thaw, Rain-Spring, etc."
+        },
+        "day": {
+            "type": "number",
+            "default": 1
+        },
+        "time_of_day": {
+            "type": "string",
+            "description": "dawn, morning, midday, afternoon, evening, night, midnight",
+            "default": "morning"
+        },
+        "active_events": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "economy": {
+            "type": "object",
+            "description": "Dynamic economic simulation with supply/demand",
+            "properties": {
+                "grain_price": {
+                    "type": "number",
+                    "default": 10
+                },
+                "grain_supply": {
+                    "type": "number",
+                    "default": 100
+                },
+                "iron_price": {
+                    "type": "number",
+                    "default": 25
+                },
+                "iron_supply": {
+                    "type": "number",
+                    "default": 50
+                },
+                "herbs_price": {
+                    "type": "number",
+                    "default": 15
+                },
+                "herbs_supply": {
+                    "type": "number",
+                    "default": 75
+                },
+                "magic_reagents_price": {
+                    "type": "number",
+                    "default": 50
+                },
+                "magic_reagents_supply": {
+                    "type": "number",
+                    "default": 30
+                },
+                "economic_trend": {
+                    "type": "string",
+                    "description": "prosperity, recession, inflation, deflation, normal"
+                },
+                "trade_routes_status": {
+                    "type": "object",
+                    "description": "Status of major trade routes: open, disrupted, closed"
+                }
+            }
+        },
+        "factions": {
+            "type": "array",
+            "description": "Political factions with dynamic power and relationships",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "faction_type": {
+                        "type": "string",
+                        "description": "kingdom, guild, order, cult, criminal, merchant, military"
+                    },
+                    "power": {
+                        "type": "number",
+                        "description": "0 to 100 scale of political/military power"
+                    },
+                    "wealth": {
+                        "type": "number",
+                        "description": "0 to 100 scale of economic resources"
+                    },
+                    "territory_control": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "List of location names controlled"
+                    },
+                    "relations": {
+                        "type": "object",
+                        "description": "Relations with other factions: faction_name -> value (-1 to 1)"
+                    },
+                    "current_agenda": {
+                        "type": "string",
+                        "description": "What this faction is currently trying to achieve"
+                    },
+                    "leadership": {
+                        "type": "object",
+                        "properties": {
+                            "leader_name": {
+                                "type": "string"
+                            },
+                            "stability": {
+                                "type": "number",
+                                "description": "Leadership stability 0-1, low means coup risk"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "rumors": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "content": {
+                        "type": "string"
+                    },
+                    "veracity": {
+                        "type": "number",
+                        "description": "0 (false) to 1 (true)"
+                    },
+                    "spread": {
+                        "type": "number",
+                        "description": "How widely known, 0 (few) to 1 (everyone)"
+                    },
+                    "origin": {
+                        "type": "string",
+                        "description": "Where/who started this rumor"
+                    }
+                }
+            }
+        },
+        "world_mood": {
+            "type": "string",
+            "description": "Overall atmosphere: peaceful, tense, fearful, hopeful, chaotic, celebratory"
+        },
+        "major_threats": {
+            "type": "array",
+            "description": "Active threats to the world (wars, plagues, monsters, prophecies)",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "threat_name": {
+                        "type": "string"
+                    },
+                    "severity": {
+                        "type": "number",
+                        "description": "0 to 1 scale"
+                    },
+                    "affected_regions": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "required": []
+}

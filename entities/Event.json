@@ -1,0 +1,87 @@
+{
+    "name": "Event",
+    "type": "object",
+    "properties": {
+        "title": {
+            "type": "string"
+        },
+        "description": {
+            "type": "string"
+        },
+        "event_type": {
+            "type": "string",
+            "description": "combat, political, economic, social, discovery, tragedy, triumph, betrayal, etc."
+        },
+        "participants": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "witnesses": {
+            "type": "array",
+            "description": "NPCs who witnessed this event and can spread info about it",
+            "items": {
+                "type": "string"
+            }
+        },
+        "location": {
+            "type": "string"
+        },
+        "outcome": {
+            "type": "string"
+        },
+        "consequences": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "type": {
+                        "type": "string",
+                        "description": "reputation_change, relationship_change, faction_shift, economic_impact, death, etc."
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "affects": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "description": "Who/what is affected"
+                    }
+                }
+            }
+        },
+        "emotional_impact": {
+            "type": "object",
+            "description": "How this event affected emotional states",
+            "properties": {
+                "overall_mood": {
+                    "type": "string",
+                    "description": "triumph, tragedy, fear, joy, anger, confusion"
+                },
+                "intensity": {
+                    "type": "number",
+                    "description": "0 to 1, how emotionally powerful"
+                }
+            }
+        },
+        "timestamp": {
+            "type": "string"
+        },
+        "day_number": {
+            "type": "number",
+            "description": "In-game day this occurred"
+        },
+        "secrecy_level": {
+            "type": "number",
+            "description": "0 (public knowledge) to 1 (completely secret)",
+            "default": 0
+        }
+    },
+    "required": [
+        "title",
+        "description"
+    ]
+}

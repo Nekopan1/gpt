@@ -1,0 +1,197 @@
+{
+    "name": "Character",
+    "type": "object",
+    "properties": {
+        "name": {
+            "type": "string",
+            "description": "Character name"
+        },
+        "background": {
+            "type": "string",
+            "description": "Character backstory and origin"
+        },
+        "appearance": {
+            "type": "string",
+            "description": "Physical description"
+        },
+        "personality": {
+            "type": "object",
+            "properties": {
+                "traits": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "values": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "flaws": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "emotional_state": {
+            "type": "object",
+            "description": "Current emotional state using valence-arousal model",
+            "properties": {
+                "valence": {
+                    "type": "number",
+                    "description": "Emotional positivity/negativity scale: -1 (very negative) to +1 (very positive)",
+                    "default": 0
+                },
+                "arousal": {
+                    "type": "number",
+                    "description": "Emotional intensity/activation: -1 (very calm) to +1 (very excited/agitated)",
+                    "default": 0
+                },
+                "dominant_emotion": {
+                    "type": "string",
+                    "description": "Current primary emotion: joy, sadness, anger, fear, disgust, surprise, contentment, anxiety, etc."
+                },
+                "mood_description": {
+                    "type": "string",
+                    "description": "Natural language description of current mood"
+                },
+                "last_updated": {
+                    "type": "string",
+                    "description": "When this emotional state was last modified"
+                }
+            }
+        },
+        "skills": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "level": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "inventory": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "currency": {
+            "type": "number",
+            "default": 0
+        },
+        "reputation": {
+            "type": "object",
+            "properties": {
+                "guild": {
+                    "type": "number"
+                },
+                "watch": {
+                    "type": "number"
+                },
+                "merchants": {
+                    "type": "number"
+                },
+                "nobles": {
+                    "type": "number"
+                }
+            }
+        },
+        "relationships": {
+            "type": "array",
+            "description": "Dynamic relationships with NPCs that evolve over time",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "npc_name": {
+                        "type": "string"
+                    },
+                    "relationship_type": {
+                        "type": "string",
+                        "description": "friend, rival, enemy, ally, lover, mentor, student, debtor, etc."
+                    },
+                    "trust": {
+                        "type": "number",
+                        "description": "Trust level: -1 (complete distrust) to +1 (absolute trust)",
+                        "default": 0
+                    },
+                    "affection": {
+                        "type": "number",
+                        "description": "Affection/friendship: -1 (hatred) to +1 (deep love/friendship)",
+                        "default": 0
+                    },
+                    "respect": {
+                        "type": "number",
+                        "description": "Respect level: -1 (contempt) to +1 (admiration)",
+                        "default": 0
+                    },
+                    "history": {
+                        "type": "array",
+                        "description": "Key shared experiences that shaped this relationship",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "event": {
+                                    "type": "string"
+                                },
+                                "emotional_impact": {
+                                    "type": "string",
+                                    "description": "How this event affected the relationship"
+                                },
+                                "date": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "emotional_memory": {
+            "type": "array",
+            "description": "Significant emotional events that shaped the character",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "event": {
+                        "type": "string"
+                    },
+                    "emotion_felt": {
+                        "type": "string"
+                    },
+                    "intensity": {
+                        "type": "number",
+                        "description": "0 to 1 scale of emotional intensity"
+                    },
+                    "lasting_impact": {
+                        "type": "string",
+                        "description": "How this still affects the character"
+                    },
+                    "date": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "current_location": {
+            "type": "string",
+            "description": "Current location ID"
+        },
+        "conversation_id": {
+            "type": "string",
+            "description": "Active world master conversation ID"
+        }
+    },
+    "required": [
+        "name"
+    ]
+}
