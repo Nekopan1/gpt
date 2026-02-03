@@ -1,0 +1,7 @@
+.venv/
+__pycache__/
+*.pyc
+models/
+tokenizer/
+data/processed/
+memory/*.sqlite
